@@ -21,5 +21,5 @@ export class AppComponent {
 //   styleUrls: ['./app.component.css']
 // })
 // export class AppComponent {
-//   title = 'Angular: Getting Started';
+//   title = 'Angular: Getting Started2';
 // }
