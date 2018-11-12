@@ -37,9 +37,15 @@ export class ProductListComponent implements OnInit{
       filterBy = filterBy.toLocaleLowerCase();
       return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
+    
+  constructor()
+  {
+    this.filteredProducts = this.products;
+    this.listFilter = '';
+  }
 
-    filteredProducts: IProduct[];
-    products: IProduct[] = [
+  filteredProducts: IProduct[];
+    products: IProduct[] = [ng p
         {
           "productId": 1,
           "productName": "Leaf Rake",
