@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./product";
-import { bloomAdd } from "@angular/core/src/render3/di";
 
 @Component({
     selector: 'pm-products',
@@ -45,7 +44,7 @@ export class ProductListComponent implements OnInit{
   }
 
   filteredProducts: IProduct[];
-    products: IProduct[] = [ng p
+    products: IProduct[] = [
         {
           "productId": 1,
           "productName": "Leaf Rake",
