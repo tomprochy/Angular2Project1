@@ -28,12 +28,18 @@ export class ProductListComponent implements OnInit {
 
   toggleImage(): void { this.showImage = !this.showImage; }
 
+getData(): void {
+
+
+ }
+
   ngOnInit(): void {
     console.log('on init function');
     this.productService.getProducts().subscribe(
       products => {
-      this.products = products,
-      this.filteredProducts = this.products},
+      this.products = products;
+      this.filteredProducts = this.products;
+    },
       error => 
       {
       this.errorMessage = <any>error;
@@ -41,8 +47,9 @@ export class ProductListComponent implements OnInit {
       
       }
     )
- 
   }
+
+  
 
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();

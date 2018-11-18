@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap} from 'rxjs/operators';
 import { IProduct } from "./product";
+import { timeout } from "q";
 
 
 @Injectable({
@@ -10,11 +11,23 @@ import { IProduct } from "./product";
 })
 export class ProductService{
 private productUrl = 'api/products/products.json'
+start: number;
 
 constructor(private http:HttpClient)
-{}
+{
+  
+
+}
+
+sleep(delay: number ): void  {
+  this.start = new Date().getTime();
+  while (new Date().getTime() < this.start + delay);
+}
 
 getProducts(): Observable<IProduct[]> {
+  // console.log("zacinam");
+  // this.sleep(5000);
+  // console.log("koncim");  
     return this.http.get<IProduct[]>(this.productUrl).pipe(
       tap(data => console.log('All: ' + JSON.stringify(data))),
       catchError(this.handleError));
